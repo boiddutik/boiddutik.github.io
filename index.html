@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boiddutik</title>
+    <link rel="icon" href="public/favicon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #111;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-img {
+            height: 40px;
+            border-radius: 6px;
+        }
+
+
+        .page-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #f9fafb;
+            padding: 2rem 5vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #111827;
+        }
+
+        .logo-name-tag {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-name-tag p {
+            font-weight: 400;
+            font-size: 12px;
+        }
+
+        nav button {
+            background-color: #4f46e5;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.4rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(79, 70, 229, 0.3);
+        }
+
+        nav button:hover {
+            background-color: #4338ca;
+            box-shadow: 0 6px 12px rgba(67, 56, 202, 0.4);
+        }
+
+        .hero {
+            display: flex;
+            flex: 2;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+            padding: 6rem 5vw;
+            background: linear-gradient(135deg, #f0f4ff, #fdfdfe);
+            text-align: center;
+        }
+
+        .hero img {
+            height: 300px;
+        }
+
+        .hero div {
+            max-width: 550px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #4b5563;
+            max-width: 600px;
+        }
+
+
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 4rem 5vw;
+            flex: 2;
+        }
+
+        .card {
+            padding: 2rem;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+            /*  */
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+        }
+
+
+        .card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: #6b7280;
+        }
+
+        footer {
+            padding: 2rem 5vw;
+            text-align: center;
+            background-color: #f3f4f6;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width:600px) {
+            .hero {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    });
+
+    document.querySelectorAll('.card').forEach(card => {
+        observer.observe(card);
+    });
+</script>
+
+<body>
+    <div class="page-container">
+        <header>
+            <div class="logo">
+                <img src="public/icon.png" alt="Boiddutik Logo" class="logo-img">
+                <div class="logo-name-tag">
+                    <span>Boiddutik</span>
+                    <p>Charged to Create. Built to Launch</p>
+                </div>
+            </div>
+            <nav>
+                <a href="mailto:boiddutik@gmail.com">
+                    <button>
+                        <p>Contact Us</p>
+                    </button>
+                </a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <img src="public/banner.png" alt="Boiddutik Banner Image">
+            <div>
+                <h1>We Build Beautiful Apps & Websites</h1>
+                <p>Accessible, pixel-perfect digital experiences</p>
+                <p>for Mobile & Web.</p>
+            </div>
+
+        </section>
+
+        <section class="services">
+            <div class="card">
+                <img src="public/mobile.svg" alt="Mobile App Icon" class="card-icon" />
+                <h3>Mobile App Development</h3>
+                <p>We build high-performance mobile apps using Flutter for Android, iOS, and web.</p>
+            </div>
+            <div class="card">
+                <img src="public/webapp.svg" alt="Mobile App Icon" class="card-icon" />
+                <h3>Web App Development</h3>
+                <p>Modern, fast, and SEO-optimized websites tailored to your business needs.</p>
+            </div>
+            <div class="card">
+                <img src="public/wordpress.svg" alt="Mobile App Icon" class="card-icon" />
+                <h3>WordPress Development</h3>
+                <p>Stunning and manageable WordPress sites with full customization and support.</p>
+            </div>
+        </section>
+
+        <footer>
+            &copy; 2025 Boiddutik. All rights reserved.
+        </footer>
+    </div>
+</body>
+
+</html>
