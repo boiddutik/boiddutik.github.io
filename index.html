@@ -177,6 +177,18 @@
             background-color: #f3f4f6;
             color: #6b7280;
             font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer div {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        footer div img {
+            height: 40px;
         }
 
         @media (max-width:600px) {
@@ -184,6 +196,12 @@
                 display: flex;
                 flex-direction: column;
                 gap: 2rem;
+            }
+
+            footer {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
             }
         }
     </style>
@@ -253,6 +271,12 @@
 
         <footer>
             &copy; 2025 Boiddutik. All rights reserved.
+            <div>
+                <a title="Github" href="https://github.com/boiddutik" target="_blank"><img src="public/github.svg"
+                        alt="github link"></a>
+                <a title="Youtube" href="https://www.youtube.com/@boiddutik" target="_blank"><img
+                        src="public/youtube.svg" alt="youtube link"></a>
+            </div>
         </footer>
     </div>
 </body>
